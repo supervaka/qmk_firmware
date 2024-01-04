@@ -237,7 +237,10 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
 }
 // clang-format on
 
-uint16_t COMBO_LEN = 104;
+#include "keymap_combo.h"
+
+// #define easy_toggle
+#ifdef easy_toggle
 const uint16_t PROGMEM CM1[] = {KC_E,KC_SPC,COMBO_END};
 const uint16_t PROGMEM CM2[] = {KC_T,KC_SPC,COMBO_END};
 const uint16_t PROGMEM CM3[] = {KC_O,KC_SPC,COMBO_END};
@@ -418,8 +421,6 @@ const uint16_t PROGMEM CM142[] = {KC_F2,KC_BSPC,COMBO_END};
 const uint16_t PROGMEM CM143[] = {KC_F3,KC_BSPC,COMBO_END};
 const uint16_t PROGMEM CM144[] = {KC_F4,KC_BSPC,COMBO_END};
 
-
-
 combo_t key_combos[] = {
 	COMBO(CM1,S(KC_O)),
 	COMBO(CM2,S(KC_E)),
@@ -582,6 +583,8 @@ combo_t key_combos[] = {
     COMBO(CM143,KC_DOWN),
     COMBO(CM144,KC_RIGHT),
 };
+
+#endif
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {

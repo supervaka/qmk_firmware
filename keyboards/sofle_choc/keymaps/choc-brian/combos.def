@@ -1,0 +1,47 @@
+#define SPLIT_1 KC_1, KC_F1
+#define SPLIT_2 KC_2, KC_F2
+#define SPLIT_3 KC_3, KC_F3
+#define SPLIT_4 KC_4, KC_F4
+#define SPLIT_5 KC_5, KC_F5
+#define SPLIT_6 KC_6, KC_F6
+#define SPLIT_7 KC_7, KC_F7
+#define SPLIT_8 KC_8, KC_F8
+
+#define SPLIT_INNER KC_B, KC_Y
+#define SPLIT_OUTER KC_A, KC_X
+
+#define __MIRRORED_COMB_2(name, key, left_1, right_1, left_2, right_2)    \
+    COMB(l_##name, key, left_1, left_2)  \
+    COMB(r_##name, key, right_1, right_2)
+
+#define MIRRORED_COMB_2(...) __MIRRORED_COMB_2(__VA_ARGS__)
+
+#define __MIRRORED_COMB_3(name, key, \
+                          left_1, right_1, left_2, right_2, left_3, right_3)    \
+    COMB(l_##name, key, left_1, left_2, left_3)  \
+    COMB(r_##name, key, right_1, right_2, right_3)
+
+#define MIRRORED_COMB_3(...) __MIRRORED_COMB_3(__VA_ARGS__)
+
+#define __MIRRORED_COMB_4(name, key, \
+                          left_1, right_1,  \
+                          left_2, right_2,  \
+                          left_3, right_3 , \
+                          left_4, right_4)  \
+    COMB(l_##name, key, left_1, left_2, left_3, left_4)  \
+    COMB(r_##name, key, right_1, right_2, right_3, right_4)
+
+#define MIRRORED_COMB_4(...) __MIRRORED_COMB_4(__VA_ARGS__)
+
+/*
+    f4 f3 f2 f1      1  2  3  4
+    f8 f7 f6 f5      5  6  7  8
+
+           B  A      X  Y
+*/
+
+//              name     result    chord keys
+MIRRORED_COMB_2(u,      KC_U,     SPLIT_6, SPLIT_7)
+MIRRORED_COMB_3(U,      S(KC_U),  SPLIT_6, SPLIT_7, SPLIT_INNER)
+MIRRORED_COMB_3(u_mod,  KC_2,     SPLIT_6, SPLIT_7, SPLIT_OUTER)
+
