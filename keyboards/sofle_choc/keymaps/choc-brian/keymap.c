@@ -167,74 +167,6 @@ led_config_t g_led_config = { {
 } };
 
 #endif
-
-// clang-format off
-// https://getreuer.info/posts/keyboards/custom-shift-keys/index.html
-#include "features/custom_shift_keys.h"
-
-const custom_shift_key_t custom_shift_keys[] = {
-  {KC_DOLLAR, S(KC_GRV)}, // $~
-  {KC_AMPERSAND, S(KC_5)}, // &%
-  {KC_LBRC, KC_7}, // [7
-  {KC_LEFT_CURLY_BRACE, KC_5}, // {5
-  {KC_RIGHT_CURLY_BRACE, KC_3}, // }3
-  {KC_LEFT_PAREN, KC_1}, // (1
-  {KC_EQL, KC_9}, // =9
-  {KC_ASTERISK, KC_0}, // *0
-  {KC_RIGHT_PAREN, KC_2}, // )2
-  {KC_PLUS, KC_4}, // +4
-  {KC_RBRC, KC_6}, // ]6
-  {KC_EXCLAIM, KC_8}, // !8
-  {KC_HASH, KC_GRV}, // #`
-  {KC_AT, KC_CIRCUMFLEX}, // @^
-};
-uint8_t NUM_CUSTOM_SHIFT_KEYS =
-    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
-
-
-// magic key impl
-// clang-format off
-uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
-  if ((mods & ~MOD_MASK_SHIFT) == 0) {
-    switch (keycode) {
-
-      // Behavior for Magic Sturdy's "magic" key.
-      case KC_A: return KC_O;       // A <-> O
-      case KC_O: return KC_A;
-
-      case KC_E: return KC_U;       // E <-> U
-      case KC_U: return KC_E;
-
-
-      // ysv col
-      case KC_S: return KC_Y;
-      case KC_Y: return KC_S;
-
-      case KC_V: return KC_Y;
-      // btg col
-      case KC_B: return KC_T;
-      case KC_T: return KC_B;
-
-      case KC_G: return KC_Y;
-
-      // lrx col
-      case KC_L: return KC_R;
-      case KC_R: return KC_L;
-      case KC_X: return KC_Y;
-
-
-      // dhf col
-      case KC_D: return KC_F;
-
-    }
-  } else if ((mods & MOD_MASK_CTRL)) {
-    switch (keycode) {
-      case KC_A:  // Ctrl+A -> Ctrl+C
-        return C(KC_C);
-    }
-  }
-  return KC_TRNS;
-}
 // clang-format on
 
 #include "keymap_combo.h"
@@ -583,13 +515,10 @@ combo_t key_combos[] = {
     COMBO(CM143,KC_DOWN),
     COMBO(CM144,KC_RIGHT),
 };
-
 #endif
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  if (!process_custom_shift_keys(keycode, record)) { return false; }
-
   return true;
 }
 
