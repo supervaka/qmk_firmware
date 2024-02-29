@@ -1,0 +1,252 @@
+#define SPLIT_1 KC_1, KC_F1
+#define SPLIT_2 KC_2, KC_F2
+#define SPLIT_3 KC_3, KC_F3
+#define SPLIT_4 KC_4, KC_F4
+#define SPLIT_5 KC_5, KC_F5
+#define SPLIT_6 KC_6, KC_F6
+#define SPLIT_7 KC_7, KC_F7
+#define SPLIT_8 KC_8, KC_F8
+
+#define SPLIT_INNER KC_Y, KC_B
+#define SPLIT_OUTER KC_X, KC_A
+
+#define SPLIT_DC KC_D, KC_C
+#define SPLIT_FE KC_F, KC_E
+
+#define __MIRRORED_COMB_2(name, key, left_1, right_1, left_2, right_2)    \
+    COMB(l_##name, key, left_1, left_2)  \
+    COMB(r_##name, key, right_1, right_2)
+
+#define MIRRORED_COMB_2(...) __MIRRORED_COMB_2(__VA_ARGS__)
+
+#define __MIRRORED_COMB_3(name, key, \
+                          left_1, right_1, left_2, right_2, left_3, right_3)    \
+    COMB(l__##name, key, left_1, left_2, left_3)  \
+    COMB(r__##name, key, right_1, right_2, right_3)
+
+#define MIRRORED_COMB_3(...) __MIRRORED_COMB_3(__VA_ARGS__)
+
+#define __MIRRORED_COMB_4(name, key, \
+                          left_1, right_1,  \
+                          left_2, right_2,  \
+                          left_3, right_3 , \
+                          left_4, right_4)  \
+    COMB(l___##name, key, left_1, left_2, left_3, left_4)  \
+    COMB(r___##name, key, right_1, right_2, right_3, right_4)
+
+#define MIRRORED_COMB_4(...) __MIRRORED_COMB_4(__VA_ARGS__)
+
+/*
+    🟥🟦🟩🟨 🔴🔵🟢🟡 ⬛
+    f4 f3 f2 f1 D   C  1  2  3  4
+    f8 f7 f6 f5 F   E  5  6  7  8
+
+           B  A        X  Y
+*/
+
+//              name     result    chord keys
+
+MIRRORED_COMB_2(O,      S(KC_O),  SPLIT_5, SPLIT_INNER)
+MIRRORED_COMB_2(o_mod,  KC_LPRN,  SPLIT_5, SPLIT_OUTER)
+
+MIRRORED_COMB_2(E,      S(KC_E),  SPLIT_6, SPLIT_INNER)
+MIRRORED_COMB_2(e_mod,  KC_LBRC,  SPLIT_6, SPLIT_OUTER)
+
+MIRRORED_COMB_2(A,      S(KC_A),  SPLIT_7, SPLIT_INNER)
+MIRRORED_COMB_2(a_mod,  KC_LEFT_CURLY_BRACE,  SPLIT_7, SPLIT_OUTER)
+
+MIRRORED_COMB_2(I,      S(KC_I),  SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_2(i_mod,  KC_LEFT_ANGLE_BRACKET,  SPLIT_8, SPLIT_OUTER)
+
+MIRRORED_COMB_2(N,      S(KC_N),  SPLIT_1, SPLIT_INNER)
+MIRRORED_COMB_2(n_mod,  KC_RPRN,  SPLIT_1, SPLIT_OUTER)
+
+MIRRORED_COMB_2(R,      S(KC_R),  SPLIT_2, SPLIT_INNER)
+MIRRORED_COMB_2(r_mod,  KC_RBRC,  SPLIT_2, SPLIT_OUTER)
+
+MIRRORED_COMB_2(T,      S(KC_T),  SPLIT_3, SPLIT_INNER)
+MIRRORED_COMB_2(t_mod,  KC_RIGHT_CURLY_BRACE,  SPLIT_3, SPLIT_OUTER)
+
+MIRRORED_COMB_2(S,      S(KC_S),  SPLIT_4, SPLIT_INNER)
+MIRRORED_COMB_2(s_mod,  KC_RIGHT_ANGLE_BRACKET,  SPLIT_4, SPLIT_OUTER)
+
+//          🔴🔵🟢🟡
+// 🟩🟩🟨🟨
+// 🟥🟥🟦🟦
+//          +
+MIRRORED_COMB_2(H,       KC_H,     SPLIT_5, SPLIT_6)
+MIRRORED_COMB_3(UPPER_H, S(KC_H),  SPLIT_5, SPLIT_6, SPLIT_INNER)
+MIRRORED_COMB_3(H_mod,   KC_0,     SPLIT_5, SPLIT_6, SPLIT_OUTER)
+
+MIRRORED_COMB_2(L,       KC_L,     SPLIT_7, SPLIT_8)
+MIRRORED_COMB_3(UPPER_L, S(KC_L),  SPLIT_7, SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_3(L_mod,   KC_4,     SPLIT_7, SPLIT_8, SPLIT_OUTER)
+
+MIRRORED_COMB_2(Y,       KC_Y,     SPLIT_1, SPLIT_2)
+MIRRORED_COMB_3(UPPER_Y, S(KC_Y),  SPLIT_1, SPLIT_2, SPLIT_INNER)
+MIRRORED_COMB_3(Y_mod,   KC_5,     SPLIT_1, SPLIT_2, SPLIT_OUTER)
+
+MIRRORED_COMB_2(B,       KC_B,     SPLIT_3, SPLIT_4)
+MIRRORED_COMB_3(UPPER_B, S(KC_B),  SPLIT_3, SPLIT_4, SPLIT_INNER)
+MIRRORED_COMB_3(B_mod,   KC_9,     SPLIT_3, SPLIT_4, SPLIT_OUTER)
+
+//          🔴🔵🟢🟡
+// 🟥🟨🟨🟥
+// 🟩🟦🟦🟩
+//          +
+MIRRORED_COMB_2(G,       KC_G,     SPLIT_1, SPLIT_4)
+MIRRORED_COMB_3(UPPER_G, S(KC_G),  SPLIT_1, SPLIT_4, SPLIT_INNER)
+MIRRORED_COMB_3(G_mod,   KC_HASH,  SPLIT_1, SPLIT_4, SPLIT_OUTER)
+
+MIRRORED_COMB_2(U,       KC_U,     SPLIT_6, SPLIT_7)
+MIRRORED_COMB_3(UPPER_U, S(KC_U),  SPLIT_6, SPLIT_7, SPLIT_INNER)
+MIRRORED_COMB_3(U_mod,   KC_2,     SPLIT_6, SPLIT_7, SPLIT_OUTER)
+
+MIRRORED_COMB_2(D,       KC_D,     SPLIT_5, SPLIT_8)
+MIRRORED_COMB_3(UPPER_D, S(KC_D),  SPLIT_5, SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_3(D_mod,   KC_AT,    SPLIT_5, SPLIT_8, SPLIT_OUTER)
+
+MIRRORED_COMB_2(P,       KC_P,     SPLIT_2, SPLIT_3)
+MIRRORED_COMB_3(UPPER_P, S(KC_P),  SPLIT_2, SPLIT_3, SPLIT_INNER)
+MIRRORED_COMB_3(P_mod,   KC_7,     SPLIT_2, SPLIT_3, SPLIT_OUTER)
+
+//          🔴🔵🟢🟡
+// 🟩🟨🟩🟨 c q f z
+// 🟥🟦🟥🟦 C Q F Z
+//          1 3 6 8
+MIRRORED_COMB_2(C,       KC_C,     SPLIT_5, SPLIT_7)
+MIRRORED_COMB_3(UPPER_C, S(KC_C),  SPLIT_5, SPLIT_7, SPLIT_INNER)
+MIRRORED_COMB_3(C_mod,   KC_1,     SPLIT_5, SPLIT_7, SPLIT_OUTER)
+
+MIRRORED_COMB_2(Q,       KC_Q,     SPLIT_6, SPLIT_8)
+MIRRORED_COMB_3(UPPER_Q, S(KC_Q),  SPLIT_6, SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_3(Q_mod,   KC_3,     SPLIT_6, SPLIT_8, SPLIT_OUTER)
+
+MIRRORED_COMB_2(F,       KC_F,     SPLIT_1, SPLIT_3)
+MIRRORED_COMB_3(UPPER_F, S(KC_F),  SPLIT_1, SPLIT_3, SPLIT_INNER)
+MIRRORED_COMB_3(F_mod,   KC_6,     SPLIT_1, SPLIT_3, SPLIT_OUTER)
+
+MIRRORED_COMB_2(Z,       KC_Z,     SPLIT_2, SPLIT_4)
+MIRRORED_COMB_3(UPPER_Z, S(KC_Z),  SPLIT_2, SPLIT_4, SPLIT_INNER)
+MIRRORED_COMB_3(Z_mod,   KC_8,     SPLIT_2, SPLIT_4, SPLIT_OUTER)
+
+// ⬛🟨🟨🟨
+// ⬛🟦🟦🟦 for misfiring q and z
+MIRRORED_COMB_3(Q,       KC_Q,     SPLIT_6, SPLIT_7, SPLIT_8)
+MIRRORED_COMB_4(UPPER_Q, S(KC_Q),  SPLIT_6, SPLIT_7, SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_4(Q_mod,   KC_3,     SPLIT_6, SPLIT_7, SPLIT_8, SPLIT_OUTER)
+
+MIRRORED_COMB_3(Z,       KC_Z,     SPLIT_2, SPLIT_3, SPLIT_4)
+MIRRORED_COMB_4(UPPER_Z, S(KC_Z),  SPLIT_2, SPLIT_3, SPLIT_4, SPLIT_INNER)
+MIRRORED_COMB_4(Z_mod,   KC_8,     SPLIT_2, SPLIT_3, SPLIT_4, SPLIT_OUTER)
+
+//          🔴🔵🟢🟡
+// 🟩🟨🟥🟦 v x k j
+// 🟥🟦🟩🟨 V X K J
+//          * ^ % =
+MIRRORED_COMB_2(V,       KC_V,          SPLIT_3, SPLIT_5)
+MIRRORED_COMB_3(UPPER_V, S(KC_V),       SPLIT_3, SPLIT_5, SPLIT_INNER)
+MIRRORED_COMB_3(V_mod,   KC_ASTERISK,   SPLIT_3, SPLIT_5, SPLIT_OUTER)
+
+MIRRORED_COMB_2(X,       KC_X,          SPLIT_6, SPLIT_4)
+MIRRORED_COMB_3(UPPER_X, S(KC_X),       SPLIT_6, SPLIT_4, SPLIT_INNER)
+MIRRORED_COMB_3(X_mod,   KC_CIRCUMFLEX, SPLIT_6, SPLIT_4, SPLIT_OUTER)
+
+MIRRORED_COMB_2(K,       KC_K,          SPLIT_1, SPLIT_7)
+MIRRORED_COMB_3(UPPER_K, S(KC_K),       SPLIT_1, SPLIT_7, SPLIT_INNER)
+MIRRORED_COMB_3(K_mod,   KC_PERCENT,    SPLIT_1, SPLIT_7, SPLIT_OUTER)
+
+MIRRORED_COMB_2(J,       KC_J,          SPLIT_2, SPLIT_8)
+MIRRORED_COMB_3(UPPER_J, S(KC_J),       SPLIT_2, SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_3(J_mod,   KC_EQUAL,      SPLIT_2, SPLIT_8, SPLIT_OUTER)
+
+// ⬛🟨🟨⬛
+// ⬛⬛⬛🟨
+MIRRORED_COMB_3(J,       KC_J,          SPLIT_2, SPLIT_3, SPLIT_8)
+MIRRORED_COMB_4(UPPER_J, S(KC_J),       SPLIT_2, SPLIT_3, SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_4(J_mod,   KC_EQUAL,      SPLIT_2, SPLIT_3, SPLIT_8, SPLIT_OUTER)
+
+
+// ⬛⬛🟦🟦
+// ⬛🟦⬛⬛
+MIRRORED_COMB_3(X,       KC_X,          SPLIT_6, SPLIT_3, SPLIT_4)
+MIRRORED_COMB_4(UPPER_X, S(KC_X),       SPLIT_6, SPLIT_3, SPLIT_4, SPLIT_INNER)
+MIRRORED_COMB_4(X_mod,   KC_CIRCUMFLEX, SPLIT_6, SPLIT_3, SPLIT_4, SPLIT_OUTER)
+
+//          🔴🔵🟢🟡
+// 🟦🟥🟨🟩 - w m /
+// 🟩🟨🟥🟦 _ W M BSLS
+//          + & $ |
+MIRRORED_COMB_2(MINUS,      KC_MINUS,   SPLIT_2, SPLIT_7)
+MIRRORED_COMB_3(UNDERSCORE, KC_UNDS,    SPLIT_2, SPLIT_7, SPLIT_INNER)
+MIRRORED_COMB_3(PLUS,       KC_PLUS,    SPLIT_2, SPLIT_7, SPLIT_OUTER)
+
+MIRRORED_COMB_2(W,       KC_W,          SPLIT_1, SPLIT_8)
+MIRRORED_COMB_3(UPPER_W, S(KC_W),       SPLIT_1, SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_3(W_mod,   KC_AMPERSAND,  SPLIT_1, SPLIT_8, SPLIT_OUTER)
+
+MIRRORED_COMB_2(M,       KC_M,          SPLIT_4, SPLIT_5)
+MIRRORED_COMB_3(UPPER_M, S(KC_M),       SPLIT_4, SPLIT_5, SPLIT_INNER)
+MIRRORED_COMB_3(M_mod,   KC_DOLLAR,     SPLIT_4, SPLIT_5, SPLIT_OUTER)
+
+MIRRORED_COMB_2(SLASH,      KC_SLASH,   SPLIT_3, SPLIT_6)
+MIRRORED_COMB_3(BACKSLASH,  KC_BSLS,    SPLIT_3, SPLIT_6, SPLIT_INNER)
+MIRRORED_COMB_3(PIPE,       KC_PIPE,    SPLIT_3, SPLIT_6, SPLIT_OUTER)
+
+//          🔴🔵🟢🟡
+// 🟩🟨🟥🟦 ' ; ? ,
+// 🟨🟩🟦🟥 " :   .
+//          ` : ! ~
+MIRRORED_COMB_2(QUOTE,        KC_QUOTE,  SPLIT_3, SPLIT_8)
+MIRRORED_COMB_3(DOUBLE_QUOTE, KC_DQT,    SPLIT_3, SPLIT_8, SPLIT_INNER)
+MIRRORED_COMB_3(BACKTICK,     KC_GRAVE,  SPLIT_3, SPLIT_8, SPLIT_OUTER)
+
+MIRRORED_COMB_2(SEMICOLON,    KC_SCLN,   SPLIT_4, SPLIT_7)
+MIRRORED_COMB_3(__COLON,      KC_COLON,  SPLIT_4, SPLIT_7, SPLIT_INNER)
+MIRRORED_COMB_3(COLON,        KC_COLON,  SPLIT_4, SPLIT_7, SPLIT_OUTER)
+
+MIRRORED_COMB_2(QUESTION,     KC_QUES,   SPLIT_1, SPLIT_6)
+//MIRRORED_COMB_3(DOUBLE_QUOTE, KC_DQT,  SPLIT_1, SPLIT_6, SPLIT_INNER)
+MIRRORED_COMB_3(EXCLAIM,      KC_EXLM,   SPLIT_1, SPLIT_6, SPLIT_OUTER)
+
+MIRRORED_COMB_2(COMMA,        KC_COMMA,  SPLIT_2, SPLIT_5)
+MIRRORED_COMB_3(DOT,          KC_DOT,    SPLIT_2, SPLIT_5, SPLIT_INNER)
+MIRRORED_COMB_3(TILDE,        KC_TILDE,  SPLIT_2, SPLIT_5, SPLIT_OUTER)
+
+//          🔴🔵🟢🟡
+// 🟥🟦🟩🟨
+// 🟥🟦🟩🟨
+//      shift = _
+MIRRORED_COMB_2(SHIFT,  OSM(MOD_LSFT),  SPLIT_1, SPLIT_5)
+
+MIRRORED_COMB_2(CTRL,   OSM(MOD_LCTL),  SPLIT_2, SPLIT_6)
+
+MIRRORED_COMB_2(ALT,    OSM(MOD_LALT),  SPLIT_3, SPLIT_7)
+
+MIRRORED_COMB_2(GUI,    OSM(MOD_LGUI),  SPLIT_4, SPLIT_8)
+
+MIRRORED_COMB_2(_GUI,   OSM(MOD_LGUI),  SPLIT_DC,SPLIT_FE)
+
+// .=!":
+// ⬛⬛⬛⬛
+// 🟥🟥🟥⬛ ;
+MIRRORED_COMB_3(_SEMICOLON, KC_SCLN, SPLIT_5, SPLIT_6, SPLIT_7)
+
+// 🟥🟥🟥⬛
+// ⬛⬛⬛⬛ =
+MIRRORED_COMB_3(_EQUAL, KC_EQUAL,  SPLIT_1, SPLIT_2, SPLIT_3)
+
+// ⬛⬛🟥⬛
+// 🟥🟥⬛⬛ !
+MIRRORED_COMB_3(TRIP_EXCLAIM, KC_EXLM,  SPLIT_3, SPLIT_5, SPLIT_6)
+
+// ⬛🟥🟥⬛
+// 🟥⬛⬛⬛ :
+MIRRORED_COMB_3(TRIP_COLON, KC_COLON,  SPLIT_2, SPLIT_3, SPLIT_5)
+
+// ⬛🟥⬛⬛
+// 🟥⬛🟥⬛
+// MIRRORED_COMB_3(_COLON, KC_COLON,  SPLIT_2, SPLIT_5, SPLIT_7)
+
+// 🟥🟥⬛⬛
+// ⬛⬛🟥⬛
