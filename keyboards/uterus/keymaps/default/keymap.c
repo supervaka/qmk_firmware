@@ -24,6 +24,7 @@
 #define LM_LCTL LM(2,MOD_LCTL)
 #define LM_LGUI LM(2,MOD_LGUI)
 #define OSM_LGUI OSM(MOD_LGUI)
+#define OSM_LCTL OSM(MOD_LCTL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT(
@@ -31,13 +32,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_TAB,     KC_S,     KC_T,     KC_R,     KC_N,	    OSM_LGUI,
 		KC_BSPC,    KC_I,     KC_A,	    KC_E,     KC_O,	    KC_DEL,	    XXXXXXX,
         LM_LCTL,    KC_LEFT,  KC_DOWN,	KC_UP,    KC_RIGHT,	KC_P5,	    XXXXXXX,
-        LM_LCTL,    KC_P1,    LM_LGUI,	KC_LALT,  KC_ENT,	KC_SPC,	    KC_P6,
+        LM_LCTL,    LM_LGUI,  LM_LGUI,	KC_LALT,  KC_ENT,	KC_SPC,	    OSM_LCTL,
 
 				    KC_F6,    KC_F7,	KC_F8,    KC_F9,	KC_F10,	    KC_F11,
 		            OSM_LGUI, KC_N,	    KC_R,     KC_T,	    KC_S,	    KC_F12,
 		XXXXXXX,    KC_DEL,	  KC_O,     KC_E,     KC_A,     KC_I,	    KC_BSPC,
-		XXXXXXX,	KC_LEFT,  KC_UP,	KC_DOWN,  KC_RIGHT,	KC_P5,	    KC_P6,
-		KC_P0,	    KC_SPC,   KC_ENT,	KC_P3,    KC_P4,	KC_P5,	    KC_P6
+		XXXXXXX,	XXXXXXX,  KC_LEFT,  KC_UP,	  KC_DOWN,  KC_RIGHT,	KC_P6,
+		OSM_LCTL,	KC_SPC,   KC_ENT,	KC_P3,    KC_P4,	KC_P5,	    KC_PSCR
 	),
     [1] = LAYOUT(
 		XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
