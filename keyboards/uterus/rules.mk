@@ -1,7 +1,7 @@
 # This file intentionally left blank
 BOOTMAGIC_ENABLE = yes
 # Bootloader selection
-BOOTLOADER = atmel-dfu
+BOOTLOADER = caterina
 
 CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
