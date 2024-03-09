@@ -21,8 +21,8 @@
 	 {k9G, k9F, k9E, k9D, k9C, k9B, k9A} \
 }
 
-#define LM_LCTL LM(2,MOD_LCTL)
-#define LM_LGUI LM(2,MOD_LGUI)
+#define LM_LCTL LM(3,MOD_LCTL)
+#define LM_LGUI LM(3,MOD_LGUI)
 #define OSM_LGUI OSM(MOD_LGUI)
 #define OSM_LCTL OSM(MOD_LCTL)
 
@@ -32,13 +32,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_TAB,     KC_S,     KC_T,     KC_R,     KC_N,	    OSM_LGUI,
 		KC_BSPC,    KC_I,     KC_A,	    KC_E,     KC_O,	    KC_DEL,	    XXXXXXX,
         KC_LSFT,    KC_LEFT,  KC_DOWN,	KC_UP,    KC_RIGHT,	KC_P5,	    XXXXXXX,
-        LM_LCTL,    OSM_LGUI, OSM_LGUI,	KC_LALT,  KC_ENT,	KC_SPC,	    OSM_LCTL,
+        LM_LCTL,    OSM_LGUI, OSM_LGUI,	KC_LALT,  KC_ENT,	KC_SPC,	    OSL(2),
 
 				    KC_F6,    KC_F7,	KC_F8,    KC_F9,	KC_F10,	    KC_F11,
 		            OSM_LGUI, KC_N,	    KC_R,     KC_T,	    KC_S,	    KC_F12,
-		XXXXXXX,    KC_DEL,	  KC_O,     KC_E,     KC_A,     KC_I,	    KC_BSPC,
-		XXXXXXX,	XXXXXXX,  KC_LEFT,  KC_UP,	  KC_DOWN,  KC_RIGHT,	KC_P6,
-		OSM_LCTL,	KC_SPC,   KC_ENT,	KC_P3,    KC_P4,	KC_P5,	    KC_PSCR
+		XXXXXXX,    KC_BTN2,  KC_O,     KC_E,     KC_A,     KC_I,	    KC_BSPC,
+		XXXXXXX,	KC_BTN3,  KC_LEFT,  KC_UP,	  KC_DOWN,  KC_RIGHT,	KC_PSCR,
+		KC_BTN1,	KC_SPC,   KC_ENT,	KC_PGUP,  KC_PGDN,  KC_HOME,    KC_END
 	),
     [1] = LAYOUT_UTERUS(
 		XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
@@ -54,7 +54,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Y,       KC_X,     KC_Y,	    XXXXXXX,  XXXXXXX,	XXXXXXX,    XXXXXXX
 	),
     [2] = LAYOUT_UTERUS(
-		KC_GRV,  _______,	_______,  _______,	_______,	_______,
+		KC_GRV,   _______,	_______,  _______,	_______,	_______,
+        _______,  KC_F1,	KC_F2,    KC_F3,	KC_F4,	    _______,
+        _______,  KC_F5,	KC_F6,    KC_F7,	KC_F8,	    _______,    _______,
+        _______,  KC_F9,	KC_F10,   KC_F11,	KC_F12,	    _______,    _______,
+        _______,  _______,	_______,  _______,	_______,	_______,    _______,
+
+                  _______,	_______,  _______,	_______,	_______,    _______,
+                  _______,  KC_F1,	  KC_F2,    KC_F3,	    KC_F4,	    _______,
+        _______,  _______,  KC_F5,	  KC_F6,    KC_F7,	    KC_F8,	    _______,
+        _______,  _______,  KC_F9,	  KC_F10,   KC_F11,	    KC_F12,	    _______,
+        _______,  _______,	_______,  _______,	_______,	_______,    _______
+	),
+    [3] = LAYOUT_UTERUS(
+		KC_GRV,   _______,	_______,  _______,	_______,	_______,
         _______,  KC_Q,	    KC_W,     KC_E,	    KC_R,	    KC_T,
         _______,  KC_A,	    KC_S,     KC_D,	    KC_F,	    KC_G,       _______,
         _______,  KC_Z,	    KC_X,     KC_C,	    KC_V,	    KC_B,       _______,
