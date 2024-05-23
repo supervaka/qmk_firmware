@@ -406,7 +406,7 @@ void process_active_buffer_overflow(void) {
     }
     uint16_t       combo_index = iter.combo_index;
     combo_t       *combo       = iter.combo;
-    combo_state_t *combo_state = NULL;
+    combo_active_state_t *combo_state = NULL;
     if (combo != NULL) {
         combo_state = get_combo_active_state(iter.combo_index);
     }
@@ -691,7 +691,7 @@ void dump_keyrecord(keyrecord_t *record) {
 void activate_combo(queued_record_t *qrecord) {
     combo_state_t  combo_index = GET_NEXT_COMBO(qrecord);
     combo_t       *combo       = &key_combos[combo_index];
-    combo_state_t *combo_state = init_combo_active_state(combo_index);
+    combo_active_state_t *combo_state = init_combo_active_state(combo_index);
     if (combo_state == NULL) {
         /* This should never happen! */
         return;
@@ -742,7 +742,7 @@ bool release_from_active(keyrecord_t *record) {
     for (ALL_COMBOS_IN_QUEUE(&active_head, &iter)) {
         uint8_t key_index = _get_combo_keycode_index(iter.combo, record->keycode);
         if (key_index != (uint8_t)-1) {
-            combo_state_t *combo_state = get_combo_active_state(iter.combo_index);
+            combo_active_state_t *combo_state = get_combo_active_state(iter.combo_index);
             if (combo_state == NULL) {
                 /* Shouldn't happen... */
                 continue;
