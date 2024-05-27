@@ -42,16 +42,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
     [1] = LAYOUT_UTERUS(
 		XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-		XXXXXXX,    KC_F4,	  KC_F3,    KC_F2,	  KC_F1,	KC_D,
-		XXXXXXX,    KC_F8,    KC_F7,    KC_F6,    KC_F5,	KC_F,       XXXXXXX,
+		XXXXXXX,    KC_F4,	  KC_F3,    KC_F2,	  KC_F1,	XXXXXXX,
+		XXXXXXX,    KC_F8,    KC_F7,    KC_F6,    KC_F5,	XXXXXXX,    XXXXXXX,
 		XXXXXXX,    XXXXXXX,  XXXXXXX,	XXXXXXX,  XXXXXXX,	XXXXXXX,    XXXXXXX,
-        XXXXXXX,    XXXXXXX,  XXXXXXX,	XXXXXXX,  KC_B,	    KC_A,       KC_B,
+        XXXXXXX,    XXXXXXX,  XXXXXXX,	XXXXXXX,  KC_B,	    KC_A,       KC_C,
 
 		            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,    XXXXXXX,
-		            KC_C,	  KC_1,     KC_2,	  KC_3,	    KC_4,       XXXXXXX,
-		XXXXXXX,    KC_E,     KC_5,     KC_6,     KC_7,	    KC_8,       XXXXXXX,
+		            XXXXXXX,  KC_1,     KC_2,	  KC_3,	    KC_4,       XXXXXXX,
+		XXXXXXX,    XXXXXXX,  KC_5,     KC_6,     KC_7,	    KC_8,       XXXXXXX,
 		XXXXXXX,    XXXXXXX,  XXXXXXX,	XXXXXXX,  XXXXXXX,	XXXXXXX,    XXXXXXX,
-        KC_Y,       KC_X,     KC_Y,	    XXXXXXX,  XXXXXXX,	XXXXXXX,    XXXXXXX
+        KC_Z,       KC_X,     KC_Y,	    XXXXXXX,  XXXXXXX,	XXXXXXX,    XXXXXXX
 	),
     [2] = LAYOUT_UTERUS(
 		KC_GRV,   _______,	_______,  _______,	_______,	_______,
