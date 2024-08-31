@@ -1,7 +1,14 @@
-ENCODER_MAP_ENABLE = yes
-VIA_ENABLE = yes
+ENCODER_MAP_ENABLE = no
+VIA_ENABLE = no
 
 # Reduce compiled size
 MOUSEKEY_ENABLE = no
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
+
+CAPS_WORD_ENABLE = no
+COMBO_ENABLE = no
+
+REPEAT_KEY_ENABLE = yes
+
+SRC += features/achordion.c
