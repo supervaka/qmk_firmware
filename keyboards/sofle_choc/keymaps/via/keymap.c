@@ -66,7 +66,10 @@ enum layers {
 #define HOME_T 	LCTL_T(KC_T)
 #define HOME_C 	LT(SYM,KC_C)
 
-#define HOME_H  LT(SYM,KC_H)
+#define SFT_Y LSFT_T(KC_Y)
+#define SFT_M LSFT_T(KC_M)
+
+#define HOME_H  LT(SYM2,KC_H)
 #define HOME_A	RCTL_T(KC_A)
 #define HOME_E 	RGUI_T(KC_E)
 #define HOME_I 	LALT_T(KC_I)
@@ -84,29 +87,29 @@ enum layers {
 // clang-format off
 #define SYM_LAYER LAYOUT( \
     _______,   	_______,  _______,  _______,  _______,  _______,                        _______,  _______,  _______,  _______,  _______,    _______, \
-    _______,	  KC_TILD,  KC_LT,	KC_GT,	  KC_HASH,  KC_DEL,                           KC_DEL,   KC_DLR,   KC_LBRC,  KC_RBRC,  KC_PERC,	  _______, \
-    _______,  	KC_EXLM,  KC_MINS, 	KC_PLUS,  SYM_EQL,	KC_AMPR,                        KC_GRV,   SYM_SCLN, KC_LPRN,  KC_RPRN,  KC_QUES,   	_______, \
+    _______,	  KC_TILD,  KC_LT,	  KC_GT,	  KC_HASH,  KC_DEL,                         KC_DEL,   KC_DLR,   KC_LBRC,  KC_RBRC,  KC_PERC,	  _______, \
+    _______,  	KC_AMPR,  KC_MINS, 	KC_PLUS,  SYM_EQL,	KC_DLR,                         KC_GRV,   SYM_SCLN, KC_LPRN,  KC_RPRN,  KC_GRV,     _______, \
     _______,  	KC_CIRC,  KC_PIPE,  KC_ASTR,  KC_BSLS,  KC_ENT,  XXXXXXX,     XXXXXXX,  KC_ENT,   KC_COLN,  KC_LCBR,  KC_RCBR,	KC_AT,   	  _______, \
                           _______,  _______,  _______,  _______, _______,     _______,  _______,  _______,  _______,  _______ \
 ) \
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT(
-    KC_ESC,   	KC_F1,    KC_F2,  	KC_F3,    KC_F4,    KC_F5,                          KC_F6,    KC_F7,  	KC_F8,    KC_F9,    KC_F10,     KC_DOT,
-    KC_TAB, 	  KC_X,	    KC_F,		  KC_D,	    KC_P, 	  KC_Q,                           KC_J,	    QK_AREP,	KC_O,     KC_U,		  KC_COMMA,	  KC_Z,
-    KC_BSPC,  	HOME_N,	  HOME_S, 	HOME_T,	  HOME_C,	  KC_Y,                           KC_M,     HOME_H,	  HOME_A,	  HOME_E,	  HOME_I,   	KC_UNDS,
-    LM_LCTL,  	KC_B,     KC_V,		  KC_K,	    KC_G,		  KC_W,    XXXXXXX,     XXXXXXX,  KC_DQUO,  KC_L,		  KC_QUOT,  KC_SLSH,	KC_DOT,   	KC_ENT,
+    KC_ESC,   	KC_F1,    KC_F2,  	C(KC_C),  C(KC_V),  KC_F5,                          KC_F6,    KC_F7,  	KC_F8,    KC_F9,    KC_F10,     KC_F11,
+    KC_TAB, 	  KC_X,	    KC_F,		  KC_D,	    KC_P, 	  KC_Q,                           KC_J,	    QK_AREP,	KC_O,     KC_U,		  QK_REP,	    KC_F12,
+    KC_BSPC,  	HOME_N,	  HOME_S, 	HOME_T,	  HOME_C,	  SFT_Y,                          SFT_M,    HOME_H,	  HOME_A,	  HOME_E,	  HOME_I,   	KC_UNDS,
+    LM_LCTL,  	KC_B,     KC_V,		  KC_K,	    KC_G,		  KC_W,    XXXXXXX,     XXXXXXX,  KC_COMMA, KC_L,		  KC_QUOT,  KC_SLSH,	KC_DOT,   	KC_ENT,
                           KC_ENT,   KC_LALT,  OSM_LSFT,	KC_SPC,  KC_ENT,      KC_ENT,   NUM_R,    QK_REP,   _______,  KC_ENT
 ),
 // SYM2 == SYM, is needed for layer tap issues when rapidly alternating hands
 [SYM] = SYM_LAYER,
 [SYM2] = SYM_LAYER,
 [NUM] = LAYOUT(
-    _______,   	_______,  _______,  _______,  _______,  _______,                        _______,  _______,  _______,  _______,  _______,    _______,
-    _______,	  _______,  KC_DEL,	  KC_DEL,   KC_DEL,   _______,                        _______,  _______,  _______,  _______,  _______,	  _______,
+    _______,   	_______,  RGB_TOG,  RGB_MOD,  _______,  _______,                        _______,  _______,  _______,  _______,  _______,    _______,
+    _______,	  _______,  KC_ESC,	  KC_TAB,   KC_DEL,   _______,                        _______,  _______,  KC_COMMA, KC_DOT,   _______,	  _______,
     _______,  	KC_7,     KC_5,  	  KC_3,     SYM_1,    KC_9,                           KC_8,     SYM_0,  	KC_2,     KC_4,     KC_6,   	  _______,
-    _______,  	KC_HOME,  KC_END,   KC_PGUP,  KC_PGDN,  _______, XXXXXXX,     XXXXXXX,  KC_PSCR,  KC_LEFT,  KC_UP,    KC_DOWN,  KC_RIGHT,   _______,
-                          _______,  _______,  _______,  _______, _______,     _______,  _______,  _______,  _______,	_______
+    _______,  	KC_HOME,  KC_END,   KC_PGUP,  KC_PGDN,  _______, XXXXXXX,     XXXXXXX,  _______,  KC_LEFT,  KC_UP,    KC_DOWN,  KC_RIGHT,   _______,
+                          _______,  _______,  _______,  _______, _______,     _______,  _______,  KC_PSCR,  _______,	_______
 ),
 [QWERTY] = LAYOUT(
     KC_GRV,   	_______,  _______,  _______,  _______,  _______,                        _______,  _______,  _______,  _______,  _______,    _______,
@@ -116,6 +119,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______,  _______,  _______,  _______, _______,     _______,  _______,  _______,  _______,	_______
 ),
 };
+
+#ifdef COMBO_ENABLE
+const uint16_t PROGMEM test_combo1[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM test_combo2[] = {KC_C, KC_V, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(test_combo1, C(KC_C)),
+    COMBO(test_combo2, C(KC_V)), // vkvkkgkgvkvk
+};
+#endif // COMBO_ENABLE
+
+#ifdef CUSTOM_SHIFT_KEYS_ENABLE
+#include "features/custom_shift_keys.h"
+const custom_shift_key_t custom_shift_keys[] = {
+  {KC_DOT, KC_EXLM}, // Shift . is !
+  {KC_COMMA, KC_DOT},
+};
+uint8_t NUM_CUSTOM_SHIFT_KEYS =
+    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
+#endif  // CUSTOM_SHIFT_KEYS_ENABLE
+
 
 #include "features/achordion.h"
 
@@ -131,31 +154,16 @@ static bool lt_with_mods_key(keyrecord_t* record, uint8_t mods) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+  if (!process_achordion(keycode, record)) { return false; }
+#ifdef CUSTOM_SHIFT_KEYS_ENABLE
+  if (!process_custom_shift_keys(keycode, record)) { return false; }
+#endif  // CUSTOM_SHIFT_KEYS_ENABLE
+
     switch (keycode) {
-        // Behave as KC_D on tap, LM(_NAV, MOD_LCTL) on hold.
+        // Behave as KC_Z on tap, LM(_NAV, MOD_LCTL) on hold.
         case LM_LCTL:
             return lt_with_mods_key(record, MOD_BIT(KC_LCTL));
     }
-    if (!process_achordion(keycode, record)) { return false; }
-
-    // #define HOME_PLUS LT(2,KC_PLUS)
-    // #define HOME_LPRN LT(2,KC_LPRN)
-    // workaround because kc argument of MT() is limited to the Basic Keycode set
-    // https://docs.qmk.fm/mod_tap 
-    // switch (keycode) {
-    //     case SYM_PLUS:
-    //         if (record->tap.count && record->event.pressed) {
-    //             tap_code16(KC_PLUS); // Send KC_PLUS on tap
-    //             return false;        // Return false to ignore further processing of key
-    //         }
-    //         break;
-    //     case SYM_LPRN:
-    //         if (record->tap.count && record->event.pressed) {
-    //             tap_code16(KC_LPRN); // Send KC_LPRN on tap
-    //             return false;        // Return false to ignore further processing of key
-    //         }
-    //         break;
-    // }
     return true;
 }
 
@@ -171,6 +179,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand
   switch (tap_hold_keycode) {
+    case LM_LCTL:
     case NUM_R:
 
     case HOME_C:
@@ -193,7 +202,7 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         case HOME_N: return KC_X;  
         case HOME_S: return KC_F;  
         case HOME_T: return KC_D;  // For "TD" bigram.
-		case HOME_C: return KC_P;
+		    case HOME_C: return KC_P;
 
         case NUM_R: return KC_R;
 
@@ -213,6 +222,7 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         case HOME_I: return KC_COMMA;
 
         case KC_M: return KC_M;
+        case SFT_M: return KC_M; 
         case KC_L: return KC_M;
 
         case KC_O: return KC_A;
