@@ -87,9 +87,9 @@ enum layers {
 // clang-format off
 #define SYM_LAYER LAYOUT( \
     _______,   	_______,  _______,  _______,  _______,  _______,                        _______,  _______,  _______,  _______,  _______,    _______, \
-    _______,	  KC_TILD,  KC_LT,	  KC_GT,	  KC_HASH,  KC_DEL,                         KC_DEL,   KC_DLR,   KC_LBRC,  KC_RBRC,  KC_PERC,	  _______, \
+    _______,	  KC_TILD,  KC_LT,	  KC_GT,	  KC_HASH,  KC_DEL,                         _______,  KC_GRV,   KC_LBRC,  KC_RBRC,  KC_PERC,	  _______, \
     _______,  	KC_AMPR,  KC_MINS, 	KC_PLUS,  SYM_EQL,	KC_DLR,                         KC_GRV,   SYM_SCLN, KC_LPRN,  KC_RPRN,  KC_GRV,     _______, \
-    _______,  	KC_CIRC,  KC_PIPE,  KC_ASTR,  KC_BSLS,  KC_ENT,  XXXXXXX,     XXXXXXX,  KC_ENT,   KC_COLN,  KC_LCBR,  KC_RCBR,	KC_AT,   	  _______, \
+    _______,  	KC_CIRC,  KC_PIPE,  KC_ASTR,  KC_BSLS,  KC_ENT,  XXXXXXX,     XXXXXXX,  _______,  KC_COLN,  KC_LCBR,  KC_RCBR,	KC_AT,   	  _______, \
                           _______,  _______,  _______,  _______, _______,     _______,  _______,  _______,  _______,  _______ \
 ) \
 
@@ -123,9 +123,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM test_combo1[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM test_combo2[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM test_combo3[] = {KC_Z, KC_X, COMBO_END};
 combo_t key_combos[] = {
     COMBO(test_combo1, C(KC_C)),
-    COMBO(test_combo2, C(KC_V)), // vkvkkgkgvkvk
+    COMBO(test_combo2, C(KC_V)),
+    COMBO(test_combo3, C(KC_Z)),
 };
 #endif // COMBO_ENABLE
 
@@ -182,12 +184,12 @@ bool achordion_chord(uint16_t tap_hold_keycode,
     case LM_LCTL:
     case NUM_R:
 
-    case HOME_C:
-    case HOME_H:
-    case SYM_EQL:
-    case SYM_SCLN:
-    case SYM_1:
-    case SYM_0:
+    // case HOME_C:
+    // case HOME_H:
+    // case SYM_EQL:
+    // case SYM_SCLN:
+    // case SYM_1:
+    // case SYM_0:
       return true;
       break;
 
