@@ -84,6 +84,8 @@ enum layers {
 #define SYM_N    LT(SYM,KC_N)
 #define SYM_I    LT(SYM2,KC_I)
 
+#define CTL_2 RCTL_T(KC_2)
+
 // clang-format off
 #define SYM_LAYER LAYOUT( \
     _______,   	_______,  _______,  _______,  _______,  _______,                        _______,  _______,  _______,  _______,  _______,    _______, \
@@ -96,7 +98,7 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT(
     KC_ESC,   	KC_F1,    KC_F2,  	C(KC_C),  C(KC_V),  KC_F5,                          KC_F6,    KC_F7,  	KC_F8,    KC_F9,    KC_F10,     KC_F11,
-    KC_TAB, 	KC_X,	  KC_F,		KC_D,	  KC_P, 	KC_Q,                           KC_J,	  QK_AREP,	KC_O,     KC_U,		QK_REP,	    KC_F12,
+    KC_TAB, 	KC_X,	  KC_F,		KC_D,	  KC_P, 	KC_Q,                           KC_J,	  QK_AREP,	KC_O,     KC_U,		KC_UNDS,	KC_F12,
     KC_BSPC,  	HOME_N,	  HOME_S, 	HOME_T,	  HOME_C,	SFT_Y,                          SFT_M,    HOME_H,	HOME_A,	  HOME_E,	HOME_I,   	KC_UNDS,
     LM_LCTL,  	KC_B,     KC_V,		KC_K,	  KC_G,	    KC_W,    XXXXXXX,     XXXXXXX,  KC_COMMA, KC_L,		KC_QUOT,  KC_SLSH,	KC_DOT,   	KC_ENT,
                           KC_ENT,   KC_LALT,  OSM_LSFT,	KC_SPC,  KC_ENT,      KC_ENT,   NUM_R,    QK_REP,   _______,  KC_ENT
@@ -105,9 +107,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [SYM] = SYM_LAYER,
 [SYM2] = SYM_LAYER,
 [NUM] = LAYOUT(
-    _______,   	_______,  RGB_TOG,  RGB_MOD,  _______,  _______,                        _______,  _______,  _______,  _______,  _______,    _______,
+    _______,   	RGB_TOG,  RGB_MOD,  DT_UP,    DT_DOWN,  DT_PRNT,                        _______,  _______,  _______,  _______,  _______,    _______,
     _______,	_______,  KC_ESC,	KC_TAB,   KC_DEL,   _______,                        _______,  _______,  KC_COMMA, KC_DOT,   _______,	_______,
-    _______,  	KC_7,     KC_5,  	KC_3,     SYM_1,    KC_9,                           KC_8,     SYM_0,  	KC_2,     KC_4,     KC_6,   	_______,
+    _______,  	KC_7,     KC_5,  	KC_3,     SYM_1,    KC_9,                           KC_8,     SYM_0,  	CTL_2,    KC_4,     KC_6,   	_______,
     _______,  	KC_HOME,  KC_END,   KC_PGUP,  KC_PGDN,  _______, XXXXXXX,     XXXXXXX,  _______,  KC_LEFT,  KC_UP,    KC_DOWN,  KC_RIGHT,   _______,
                           _______,  _______,  _______,  _______, _______,     _______,  _______,  KC_PSCR,  _______,  _______
 ),

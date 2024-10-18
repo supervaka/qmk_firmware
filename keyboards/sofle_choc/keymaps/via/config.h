@@ -31,6 +31,7 @@
 #define QUICK_TAP_TERM 0
 #define DEBOUNCE 10
 
+
 #define CUSTOM_SHIFT_KEYS_ENABLE
 
 #define PERMISSIVE_HOLD
@@ -38,3 +39,5 @@
 
 #define COMBO_TERM 20
 #define COMBO_ONLY_FROM_LAYER 1 // qwerty layer
+
+#define TAPPING_TERM 180
